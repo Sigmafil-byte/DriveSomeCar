@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveSomeCar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            background: url('DsM.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px 10%;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #e74c3c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+        .main h2 {
+            font-size: 4em;
+            margin: 0;
+            color: #ecf0f1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .main p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #bdc3c7;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        .btn:active {
+            transform: translateY(1px);
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .footer p {
+            margin: 0;
+            font-size: 1.2em;
+            color: #bdc3c7;
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .main h2 {
+                font-size: 2.5em;
+            }
+            .main p {
+                font-size: 1em;
+            }
+            .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Kontrol Bölümü Stili */
+        .controls {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        .controls.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .controls h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+        .controls p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            color: #bdc3c7;
+        }
+
+        /* Sayfanın uzunluğunu artır */
+        .spacer {
+            height: 150vh; /* Sayfanın yüksekliğini artırarak kaydırma çubuğu ekleyin */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DriveSomeCar</h1>
+    </div>
+    <div class="main">
+        <h2>Welcome to DriveSomeCar</h2>
+        <p>Your ultimate car driving experience awaits.</p>
+        <a href="#" class="btn" onclick="showAlert()">Download From Steam</a>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 DriveSomeCar. All rights reserved.</p>
+    </div>
+    <div class="spacer"></div> <!-- Sayfanın uzunluğunu artırmak için spacer eklenir -->
+    <div class="controls" id="controls">
+        <h2>Kontroller</h2>
+        <p><strong>W</strong> - İleri</p>
+        <p><strong>S</strong> - Geri</p>
+        <p><strong>A</strong> - Sola</p>
+        <p><strong>D</strong> - Sağa</p>
+        <p><strong>R</strong> - Yeniden Başlat</p>
+    </div>
+    <script>
+        function showAlert() {
+            alert("Yakında yayınlayacağız!");
+        }
+
+        // Kontrol bölümünü kaydırınca göster
+        window.addEventListener('scroll', function() {
+            const controlsSection = document.getElementById('controls');
+            if (window.scrollY > document.body.scrollHeight - window.innerHeight - 100) { // 100px boşluk
+                controlsSection.classList.add('show');
+            } else {
+                controlsSection.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
